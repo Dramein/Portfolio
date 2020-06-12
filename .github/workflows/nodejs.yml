@@ -20,11 +20,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm start
-    - run: npm test --if-present
+    - run: npm run build
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.4.9
       with:
         CLEAN: true
         BRANCH: master
-        FOLDER: docs
+        FOLDER: build
